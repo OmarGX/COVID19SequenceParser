@@ -31,7 +31,7 @@ public class FileCreator {
         }
 
         try {
-            FileWriter fw = new FileWriter("output/outputFile.txt");
+            FileWriter fw = new FileWriter("output\\outputFile.txt");
             for(String seq : sequences) {
                 if(seq.contains("NC_045512")){
                     fw.write("#RefSeq: "+seq.split("\n", 2)[0]+"\n");
@@ -50,10 +50,15 @@ public class FileCreator {
         }
     }
 
-    public void AlignmentDiffOutput(LinkedList<DiffMatchPatch.Diff> list) {
+    public void AlignmentDiffOutput(LinkedList<DiffMatchPatch.Diff> list, String actualstringId) {
 
         try {
-            FileWriter fw = new FileWriter("outputFile.txt");
+            FileWriter fw = new FileWriter("output\\outputFile.txt", true);
+            fw.write("@"+actualstringId+"\n");
+            for(DiffMatchPatch.Diff diff : list) {
+                fw.write(diff + "--->["+diff.getStartIndex()+"]\n");
+            }
+            fw.close();
 
 
         } catch (IOException e) {

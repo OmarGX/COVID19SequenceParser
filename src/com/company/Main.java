@@ -49,7 +49,7 @@ public class Main {
                 System.out.print(d + "->");
                 System.out.println("[" + d.getStartIndex() + "]");
             }
-            fc.AlignmentDiffOutput(diffs);
+            fc.AlignmentDiffOutput(diffs, actualStringId);
         }
     }
 }
