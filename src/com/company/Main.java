@@ -4,7 +4,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.LinkedList;
-import com.company.DiffMatchPatch;
 import java.util.Iterator;
 
 public class Main {
@@ -13,6 +12,7 @@ public class Main {
         DiffMatchPatch dmp = new DiffMatchPatch();
         String fileContent = "";
         String refSeq = "";
+        FileCreator fc = new FileCreator();
         ArrayList<String> aligned_Seq = new ArrayList<String>();
         File newFile = new File("C:\\Users\\omarg\\Documents\\Bioinformatica\\Progetto\\MAFFT\\MAFFT-fasta.txt");
         if (newFile.isFile()) {
@@ -27,6 +27,7 @@ public class Main {
         for (String seq : sequences) {
             aligned_Seq.add(seq);
         }
+        fc.generateHeaderFile(sequences);
         for (String seq : aligned_Seq) {
             if (seq.contains("NC_045512")) {
                 refSeq = seq.split("\n", 2)[1];
@@ -48,6 +49,7 @@ public class Main {
                 System.out.print(d + "->");
                 System.out.println("[" + d.getStartIndex() + "]");
             }
+            fc.AlignmentDiffOutput(diffs);
         }
     }
 }
