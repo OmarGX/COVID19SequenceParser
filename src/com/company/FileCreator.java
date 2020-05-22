@@ -51,12 +51,11 @@ public class FileCreator {
     }
 
     public void AlignmentDiffOutput(LinkedList<DiffMatchPatch.Diff> list, String actualstringId) {
-
         try {
             FileWriter fw = new FileWriter("output\\outputFile.txt", true);
             fw.write("@"+actualstringId+"\n");
             for(DiffMatchPatch.Diff diff : list) {
-                fw.write(diff + "--->["+diff.getStartIndex()+"]\n");
+                fw.write("("+diff.getOperation() +":" + diff.getText() + ")/["+(diff.getStartIndex()+1)+"]\n");
             }
             fw.close();
 

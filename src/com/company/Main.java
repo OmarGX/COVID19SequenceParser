@@ -37,7 +37,9 @@ public class Main {
             String actualString = aligned_Seq.get(i).split("\n", 2)[1].replace("\n", "");
             String actualStringId = aligned_Seq.get(i).split("\n", 2)[0].split("\\|")[0];
             System.out.println("\n"+actualStringId);
-            LinkedList<DiffMatchPatch.Diff> diffs = dmp.diff_main(refSeq.replace("\n", ""), actualString);
+            LinkedList<DiffMatchPatch.Diff> diffs = dmp.diff_main(refSeq.replace("\n", ""), actualString, false);
+            dmp.diff_cleanupMerge(diffs);
+            dmp.diff_cleanupEfficiency(diffs);
             Iterator<DiffMatchPatch.Diff> iterList = diffs.iterator();
             while (iterList.hasNext()) {
                 DiffMatchPatch.Diff item = iterList.next();
