@@ -55,7 +55,43 @@ public class FileCreator {
             FileWriter fw = new FileWriter("output\\outputFile.txt", true);
             fw.write("@"+actualstringId+"\n");
             for(DiffMatchPatch.Diff diff : list) {
-                fw.write("("+diff.getOperation() +":" + diff.getText() + ")/["+(diff.getStartIndex()+1)+"]\n");
+                if(diff.getStartIndex()>=266 && diff.getStartIndex()<=21555) {
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:ORF1ab\n");
+                }
+                else if(diff.getStartIndex()>=27893 && diff.getStartIndex()<28259){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:ORF8\n");
+                }
+                else if(diff.getStartIndex()>=29557 && diff.getStartIndex()<29674){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:ORF10\n");
+                }
+                else if(diff.getStartIndex()>=28273 && diff.getStartIndex()<29553){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:N\n");
+                }
+                else if(diff.getStartIndex()>=27755 && diff.getStartIndex()<27887){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:ORF7b\n");
+                }
+                else if(diff.getStartIndex()>=27393 && diff.getStartIndex()<27755){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:ORF7a\n");
+                }
+                else if(diff.getStartIndex()>=27201 && diff.getStartIndex()<=27387){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:ORF6\n");
+                }
+                else if(diff.getStartIndex()>=26522 && diff.getStartIndex()<=27191){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:M\n");
+                }
+                else if(diff.getStartIndex()>=26244 && diff.getStartIndex()<=26472){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:E\n");
+                }
+                else if(diff.getStartIndex()>=25392 && diff.getStartIndex()<=26220){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:ORF3a\n");
+                }
+                else if(diff.getStartIndex()>=21562 && diff.getStartIndex()<=25384){
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:S\n");
+                }
+                else {
+                    fw.write("(" + diff.getOperation() + ":" + diff.getText() + ")/[" + (diff.getStartIndex() + 1) + "]:NONE\n");
+                }
+
             }
             fw.close();
 
