@@ -14,7 +14,7 @@ public class Main {
         String refSeq = "";
         FileCreator fc = new FileCreator();
         ArrayList<String> aligned_Seq = new ArrayList<String>();
-        File newFile = new File("C:\\Users\\omarg\\OneDrive\\Documenti\\Bioinformatica\\Progetto\\KAlign\\KAlign-fasta.txt");
+        File newFile = new File("C:\\Users\\omarg\\OneDrive\\Documenti\\Bioinformatica\\Progetto\\MAFFT\\mafft-E20200426-134136-0165-22873500-p1m.fasta");
         if (newFile.isFile()) {
             try {
                 fileContent = Files.readString(newFile.toPath());
